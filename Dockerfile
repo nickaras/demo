@@ -1,9 +1,6 @@
-FROM ficusio/node-alpine:5-onbuild
+FROM mhart/alpine-node
 
-COPY /tmp/demo_build /
+COPY demo_build /
 
-WORKDIR "/demo_build"
-
-RUN npm build
-
-ENTRYPOINT "npm install"
+COPY run.sh /
+ENTRYPOINT ["/run.sh"]
